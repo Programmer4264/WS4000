@@ -39,3 +39,4 @@ WSQS_extended_forecast_checkbox = "true"
 WSQS_almanac_checkbox = "false"
 WSQS_spc_outlook_checkbox = "true"
 WSQS_radar_checkbox = "true"
+WSQS_settings_mediaPlaying_boolean =true
