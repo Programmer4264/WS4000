@@ -183,6 +183,27 @@ npm run build   # generates the /dist folder for deployment
 
 See [CLOUDFLARE_DEPLOYMENT.md](CLOUDFLARE_DEPLOYMENT.md) for full instructions, including how to pin a location and lock display settings for kiosk / digital signage use.
 
+**Cloudflare Workers (static hosting with environment-variable support):**
+Deploy as a Cloudflare Worker to gain full support for `WSQS_*` environment variables — pin a location and lock display settings server-side without modifying any HTML. The Worker intercepts requests to the root URL and redirects with the configured query parameters; all static assets are served from the built `dist/` files.
+
+```bash
+npm install -g wrangler   # install Wrangler CLI
+npm run build             # generate /dist
+wrangler login            # authenticate with Cloudflare
+wrangler deploy           # deploy the Worker
+```
+
+Then set variables in `wrangler.toml` (or in the Cloudflare dashboard) to pin a location and display settings:
+
+```toml
+[vars]
+WSQS_latLonQuery = "Orlando International Airport, Orlando, FL, USA"
+WSQS_kiosk = "true"
+WSQS_radar_checkbox = "true"
+```
+
+See [CLOUDFLARE_WORKERS_DEPLOYMENT.md](CLOUDFLARE_WORKERS_DEPLOYMENT.md) for the full variable reference and step-by-step instructions. Example configurations are in [wrangler.toml.example](wrangler.toml.example).
+
 ## What's different
 
 I've made several changes to this Weather Star 4000 simulation compared to the original hardware unit and the code that this was forked from.

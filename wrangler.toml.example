@@ -1,0 +1,122 @@
+# wrangler.toml – Example Configurations for WeatherStar 4000+
+#
+# Copy the block that best fits your use case into wrangler.toml (replace the
+# commented-out [vars] section) and run `wrangler deploy`.
+#
+# See CLOUDFLARE_WORKERS_DEPLOYMENT.md for the full variable reference and
+# step-by-step deployment instructions.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Required header (already in your wrangler.toml) ─────────────────────────
+# name = "ws4kp"
+# main = "src/index.js"
+# compatibility_date = "2024-09-23"
+#
+# [build]
+# command = "npm run build"
+#
+# [assets]
+# directory = "./dist"
+# binding = "ASSETS"
+# run_worker_first = true
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+# ── Example 1: Home Weather Dashboard ────────────────────────────────────────
+# Pinned to Orlando, FL with common display sections enabled.
+# Good for a home screen or personal weather page.
+#
+# [vars]
+# WSQS_latLonQuery = "Orlando International Airport, Orlando, FL, USA"
+# WSQS_hazards_checkbox = "true"
+# WSQS_current_weather_checkbox = "true"
+# WSQS_latest_observations_checkbox = "true"
+# WSQS_hourly_checkbox = "false"
+# WSQS_hourly_graph_checkbox = "true"
+# WSQS_travel_checkbox = "false"
+# WSQS_regional_forecast_checkbox = "true"
+# WSQS_local_forecast_checkbox = "true"
+# WSQS_extended_forecast_checkbox = "true"
+# WSQS_almanac_checkbox = "false"
+# WSQS_spc_outlook_checkbox = "true"
+# WSQS_radar_checkbox = "true"
+# WSQS_settings_units_select = "us"
+# WSQS_settings_speed_select = "1.00"
+
+
+# ── Example 2: Kiosk / Digital Signage ───────────────────────────────────────
+# Fullscreen kiosk mode with auto-play, pinned location, focused display set.
+# Pair with a browser launched in --kiosk mode for a TV/signage installation.
+#
+# [vars]
+# WSQS_latLonQuery = "Orlando International Airport, Orlando, FL, USA"
+# WSQS_kiosk = "true"
+# WSQS_settings_mediaPlaying_boolean = "true"
+# WSQS_settings_speed_select = "1.00"
+# WSQS_settings_kiosk_checkbox = "true"
+# WSQS_hazards_checkbox = "true"
+# WSQS_current_weather_checkbox = "true"
+# WSQS_latest_observations_checkbox = "true"
+# WSQS_hourly_graph_checkbox = "true"
+# WSQS_travel_checkbox = "false"
+# WSQS_regional_forecast_checkbox = "true"
+# WSQS_local_forecast_checkbox = "true"
+# WSQS_extended_forecast_checkbox = "true"
+# WSQS_almanac_checkbox = "false"
+# WSQS_spc_outlook_checkbox = "true"
+# WSQS_radar_checkbox = "true"
+
+
+# ── Example 3: Minimal View (Current Conditions + Radar only) ────────────────
+# Shows only the most essential weather information.
+#
+# [vars]
+# WSQS_latLonQuery = "New York City, NY, USA"
+# WSQS_hazards_checkbox = "false"
+# WSQS_current_weather_checkbox = "true"
+# WSQS_latest_observations_checkbox = "false"
+# WSQS_hourly_checkbox = "false"
+# WSQS_hourly_graph_checkbox = "false"
+# WSQS_travel_checkbox = "false"
+# WSQS_regional_forecast_checkbox = "false"
+# WSQS_local_forecast_checkbox = "false"
+# WSQS_extended_forecast_checkbox = "false"
+# WSQS_almanac_checkbox = "false"
+# WSQS_spc_outlook_checkbox = "false"
+# WSQS_radar_checkbox = "true"
+
+
+# ── Example 4: All Sections, Widescreen, Slow Speed ─────────────────────────
+# Shows every available display at a relaxed pace on a widescreen display.
+#
+# [vars]
+# WSQS_latLonQuery = "Dallas Fort Worth International Airport, TX, USA"
+# WSQS_hazards_checkbox = "true"
+# WSQS_current_weather_checkbox = "true"
+# WSQS_latest_observations_checkbox = "true"
+# WSQS_hourly_checkbox = "true"
+# WSQS_hourly_graph_checkbox = "true"
+# WSQS_travel_checkbox = "true"
+# WSQS_regional_forecast_checkbox = "true"
+# WSQS_local_forecast_checkbox = "true"
+# WSQS_extended_forecast_checkbox = "true"
+# WSQS_almanac_checkbox = "true"
+# WSQS_spc_outlook_checkbox = "true"
+# WSQS_radar_checkbox = "true"
+# WSQS_settings_wide_checkbox = "true"
+# WSQS_settings_speed_select = "0.75"
+# WSQS_settings_units_select = "us"
+
+
+# ── Example 5: Metric Units (international-style display) ───────────────────
+# Displays temperatures in °C, wind in km/h, and precipitation in mm.
+#
+# [vars]
+# WSQS_latLonQuery = "Chicago O'Hare International Airport, IL, USA"
+# WSQS_settings_units_select = "metric"
+# WSQS_hazards_checkbox = "true"
+# WSQS_current_weather_checkbox = "true"
+# WSQS_hourly_graph_checkbox = "true"
+# WSQS_radar_checkbox = "true"
+# WSQS_travel_checkbox = "false"
+# WSQS_almanac_checkbox = "false"
