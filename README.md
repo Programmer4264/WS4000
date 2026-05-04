@@ -174,6 +174,15 @@ STATIC=1 npm start          # Use Express to serve development files
 STATIC=1 DIST=1 npm start   # Use Express to serve (minimized) production files
 ```
 
+**Cloudflare Pages (free static hosting):**
+Deploy to Cloudflare's global CDN with zero server cost. Build the static files and connect your GitHub repository to Cloudflare Pages:
+
+```bash
+npm run build   # generates the /dist folder for deployment
+```
+
+See [CLOUDFLARE_DEPLOYMENT.md](CLOUDFLARE_DEPLOYMENT.md) for full instructions, including how to pin a location and lock display settings for kiosk / digital signage use.
+
 ## What's different
 
 I've made several changes to this Weather Star 4000 simulation compared to the original hardware unit and the code that this was forked from.

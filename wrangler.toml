@@ -1,0 +1,22 @@
+# Cloudflare Pages configuration for WeatherStar 4000+
+# See CLOUDFLARE_DEPLOYMENT.md for full deployment instructions
+
+name = "ws4kp"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "npm run build"
+cwd = "."
+
+[build.upload]
+format = "directory"
+dir = "./dist"
+
+# Environment variables are set in the Cloudflare Pages dashboard under
+# Settings > Environment Variables. See .env.cloudflare.example for the
+# full list of available WSQS_ variables.
+#
+# Example (set these in the dashboard, not here, to keep secrets out of source):
+#   WSQS_latLonQuery = "Orlando International Airport, Orlando, FL, USA"
+#   WSQS_kiosk = "true"
+#   WSQS_hazards_checkbox = "false"
