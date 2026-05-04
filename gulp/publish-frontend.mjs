@@ -131,6 +131,7 @@ const compressHtml = async () => src(htmlSources)
 const otherFiles = [
 	'server/robots.txt',
 	'server/manifest.json',
+	'server/music/readme.txt',
 	'server/music/**/*.mp3',
 ];
 const copyOtherFiles = () => src(otherFiles, { base: 'server/', encoding: false })
