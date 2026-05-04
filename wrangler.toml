@@ -12,6 +12,9 @@ cwd = "."
 format = "directory"
 dir = "./dist"
 
+[assets]
+directory = "./dist"
+
 # Environment variables are set in the Cloudflare Pages dashboard under
 # Settings > Environment Variables. See .env.cloudflare.example for the
 # full list of available WSQS_ variables.
