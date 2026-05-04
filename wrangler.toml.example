@@ -110,7 +110,7 @@
 
 # ── Example 5: Metric Units (international-style display) ───────────────────
 # Displays temperatures in °C, wind in km/h, and precipitation in mm.
-#
+# whats up?
 # [vars]
 # WSQS_latLonQuery = "Chicago O'Hare International Airport, IL, USA"
 # WSQS_settings_units_select = "metric"
