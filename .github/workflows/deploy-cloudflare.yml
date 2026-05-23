@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - main        # adjust to your default branch if needed
+      - main
 
 jobs:
   deploy:
@@ -28,10 +28,11 @@ jobs:
       - name: Build static files
         run: npm run build
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=ws4kp --commit-dirty=true
+      - name: Install Wrangler
+        run: npm install --no-save wrangler@4.86.0
 
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy dist --project-name=ws4kp --commit-dirty=true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
